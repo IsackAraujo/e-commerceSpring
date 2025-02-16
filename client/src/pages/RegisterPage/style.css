@@ -1,0 +1,107 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-box {
+  background-color: #18142c;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Título */
+.register-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Estilos do formulário */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.register-input:focus {
+  border-color: #007bff;
+}
+
+/* Estilo dos botões */
+.register-button,
+.back-button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-button {
+  background-color: #242450;
+  color: #fff;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}
+
+.back-button {
+  background-color: #f1f1f1;
+  color: #333;
+  margin-top: 10px;
+}
+
+.back-button:hover {
+  background-color: #ddd;
+}
+
+/* Checkbox e termos de serviço */
+.terms-container {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.terms-label {
+  font-size: 14px;
+}
+
+.terms-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}

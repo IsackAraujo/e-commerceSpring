@@ -1,0 +1,50 @@
+.navbar-custom {
+  background-color: #141434;
+  padding: 10px 20px;
+}
+
+.brand-title {
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.brand-title span {
+  color: #e63946;
+}
+
+.search-form {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.search-input {
+  max-width: 600px;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  background-color: #242450;
+}
+
+.search-input:focus {
+  background-color: #242450;
+}
+
+.search-input::placeholder {
+  color: #8a8a8a;
+}
+
+.navbar-nav .nav-link {
+  color: #b0b0b0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.search-form button:focus {
+  outline: none;  /* Remove a borda de foco */
+  border: none;   /* Garante que não há borda */
+}
+
+

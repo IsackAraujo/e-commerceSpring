@@ -1,0 +1,142 @@
+/* Definições gerais */
+.payment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card central */
+.payment-card {
+  background: #18142c;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  text-align: center;
+}
+
+/* Título */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Botões de seleção de pagamento */
+.payment-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.payment-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #ddd;
+  color: #333;
+}
+
+.payment-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Formulário */
+.payment-form {
+  text-align: left;
+}
+
+.payment-form label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  color: white; /* Texto branco */
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row div {
+  flex: 1;
+}
+
+/* Seção do Pix */
+.pix-section {
+  text-align: center;
+  color: white; /* Deixa o texto da seção Pix em branco */
+}
+
+.pix-section img {
+  width: 150px;
+  margin-top: 10px;
+}
+
+/* Resumo do pedido */
+.order-summary {
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.order-summary h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* Botão de confirmação */
+.confirm-button {
+  background-color: #28a745;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.confirm-button:hover {
+  background-color: #218838;
+}
+
+/* Animação suave ao alternar opções */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

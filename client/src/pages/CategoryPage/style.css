@@ -1,0 +1,15 @@
+/* Estilização do título da categoria */
+.category-title {
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Mensagem quando não há produtos */
+.no-products-message {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
