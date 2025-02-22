@@ -10,6 +10,7 @@ import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import CategoryPage from "./pages/CategoryPage";
 import PaymentPage from "./pages/PaymentPage";
+import HistoryPage from "./pages/HistoryPage";
 
 function App() {
   return (
@@ -23,8 +24,9 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/carrinho" element={<CartPage />} />
-          <Route path="/category/:categoryName" element={<CategoryPage />} />
+          <Route path="/category/:id" element={<CategoryPage />} />
           <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/history" element={<HistoryPage/>} />
 
 
         </Routes>

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import {LoginService, UserAuthData} from "../../api/Login.ts";
+
+const loginService = new LoginService("http://localhost:8080");
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -16,6 +19,13 @@ const LoginPage = () => {
     if (storedUser) {
       const user = JSON.parse(storedUser);
 
+      const userData: UserAuthData = {
+        displayName: 'teste',
+        password: 'tste'
+      };
+
+      loginService.loginUser(userData);
+
       if (username === user.username && password === user.password) {
         if (rememberMe) {
           localStorage.setItem("rememberUser", username);
@@ -23,7 +33,6 @@ const LoginPage = () => {
           localStorage.removeItem("rememberUser");
         }
 
-        /*PAREI AQUI ESTOU COLOCANDO AUTHENTICAÇÃO*/
         alert("Login bem-sucedido!");
         navigate("/");
       } else {

@@ -6,22 +6,32 @@ import { ProductService, Product } from "../../api/Products";
 const productService = new ProductService("http://localhost:8080");
 
 const CategoryPage: React.FC = () => {
-
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id?: string }>();
     const navigate = useNavigate();
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    console.log("id: " + id?.toString());
+
     useEffect(() => {
         const fetchProducts = async () => {
+            if (!id) {
+                setError("ID da categoria não encontrado");
+                setLoading(false);
+                return;
+            }
+
             try {
-                if (id) {
-                    const categoryId = parseInt(id, 10);
-                    console.log("Fetching products for category ID:", categoryId);
-                    const productsData = await productService.getProductsByCategory(categoryId);
-                    setProducts(productsData);
+                const categoryId = parseInt(id, 10);
+
+                if (isNaN(categoryId)) {
+                    setError("ID da categoria inválido");
+                    setLoading(false);
+                    return;
                 }
+
+                console.log("Fetching products for category ID:", categoryId);
+                const productsData = await productService.getProductsByCategory(categoryId);
+                setProducts(productsData);
                 setLoading(false);
             } catch (err) {
                 console.error("Error fetching products:", err);

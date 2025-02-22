@@ -20,11 +20,11 @@ export class UserService {
     }
 
     async registerUser(userData: UserRegisterData): Promise<any> {
-        console.log('Dados do usuário:', userData); // Verifique se a estrutura está correta
+        console.log('Dados do usuário:', userData);
         try {
             const response = await axios.post(`${this.baseUrl}/user`, userData, {
                 headers: {
-                    'Content-Type': 'application/json', // Garantir que o conteúdo seja tratado como JSON
+                    'Content-Type': 'application/json',
                 },
             });
             console.log("Status da criação: " + response.status);

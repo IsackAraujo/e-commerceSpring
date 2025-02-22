@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { ProductService } from "../../api/Products";
+import {addToCart} from "../../services/CarrinhoServices.ts";
 
 // Define interface for the product structure coming from API
 interface Product {
@@ -22,6 +23,14 @@ const categories = ["Tênis", "Camiseta", "Meia"];
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
+
+  const handleAddToCart = (product: any) => {
+    console.log(product)
+    addToCart(product);
+    alert(`${product.name} adicionado ao carrinho com sucesso!`);
+  };
+
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -57,45 +66,40 @@ const HomePage: React.FC = () => {
               <span
                   key={index}
                   className="category-text"
-                  onClick={() => navigate(`/category/${index+1}`)}
+                  onClick={() => {
+                    const categoryId = index + 1;
+                    console.log("Navigating to category:", categoryId);
+                    navigate(`/category/${categoryId}`);
+                  }}
                   style={{ cursor: "pointer" }}
               >
-           {category}
-          </span>
+                {category}
+            </span>
           ))}
         </div>
 
         <hr className="divider" />
 
         <div className="products-container">
-          {products.length > 0 ? (
-              products.map((product) => (
-                  <div key={product.id} className="product-card">
-                    <img
-                        src={product.imageUrl}
-                        alt={product.name}
-                        className="product-image"
-                        onClick={() => navigate(`/product/${product.id}`)}
-                        style={{ cursor: "pointer" }}
-                    />
-                    <h3 className="product-title">{product.name}</h3>
-                    <p className="product-price">{`R$ ${product.price.toFixed(2).replace('.', ',')}`}</p>
-                    <div className="product-buttons">
-                      <button className="btn-primary" onClick={() => navigate(`/product/${product.id}`)}>
-                        Comprar Agora
-                      </button>
-                      <button
-                          className="btn-secondary"
-                          onClick={() => alert(`${product.name} adicionado ao carrinho!`)}
-                      >
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </div>
-              ))
-          ) : (
-              <p className="no-products">Nenhum produto encontrado</p>
-          )}
+          {products.map((product) => (
+              <div key={product.id} className="product-card">
+                <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="product-image"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                    style={{cursor: "pointer"}}
+                />
+                <h3 className="product-title">{product.name}</h3>
+                <p className="product-price">{product.price}</p>
+                <div className="product-buttons">
+                  <button className="btn-primary" onClick={() => navigate(`/product/${product.id}`)}>Comprar Agora
+                  </button>
+                  <button className="btn-secondary" onClick={() => handleAddToCart(product)}>Adicionar ao Carrinho
+                  </button>
+                </div>
+              </div>
+          ))}
         </div>
       </div>
   );

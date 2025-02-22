@@ -5,13 +5,11 @@ import './style.css';
 const Footer: React.FC = () => {
   return (
     <>
-      {/* Linha divisória */}
       <div className="footer-divider"></div>
 
       <footer className="custom-footer text-white py-4">
         <div className="container d-flex flex-column">
           <div className="d-flex justify-content-between align-items-center">
-            {/* Métodos de pagamento */}
             <div className="payment-methods text-start">
               <img
                 src="https://img.icons8.com/color/48/visa.png"

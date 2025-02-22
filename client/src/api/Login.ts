@@ -13,17 +13,39 @@ export class LoginService {
     }
 
     async registerUser(userData: UserAuthData): Promise<any> {
-        console.log('Dados do usuário:', userData); // Verifique se a estrutura está correta
+        console.log('Dados do usuário:', userData);
         try {
             const response = await axios.post(`${this.baseUrl}/user`, userData, {
                 headers: {
-                    'Content-Type': 'application/json', // Garantir que o conteúdo seja tratado como JSON
+                    'Content-Type': 'application/json',
                 },
             });
             console.log("Status da criação: " + response.status);
             return response.data;
         } catch (error) {
             console.error('Erro ao registrar usuário:', error);
+            throw error;
+        }
+    }
+
+    async loginUser(userData: UserAuthData): Promise<any> {
+        console.log('Dados de login:', userData);
+        try {
+            const response = await axios.post(`${this.baseUrl}/login`, userData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            console.log("Status do login: " + response.status);
+
+
+            if (response.data.token) {
+                localStorage.setItem('token', response.data.token);
+            }
+
+            return response.data;
+        } catch (error) {
+            console.error('Erro ao fazer login:', error);
             throw error;
         }
     }

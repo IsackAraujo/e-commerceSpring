@@ -1,0 +1,52 @@
+.history-container {
+  background-color: #18142c;
+  color: white;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #4caf50;
+}
+
+.order-summary {
+  background-color: #242450;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h5 {
+  color: white;
+  margin: 10px 0;
+}
+
+.order-summary p {
+  margin: 5px 0;
+  color: #ddd;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 18px;
+  color: #4caf50;
+}
+
+hr {
+  border: 1px solid #ddd;
+  margin: 15px 0;
+}
+
+.order-summary p:last-child {
+  color: #fff;
+}
+
+.history-container p {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+}

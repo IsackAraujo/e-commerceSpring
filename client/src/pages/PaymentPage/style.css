@@ -1,142 +1,116 @@
-/* Definições gerais */
 .payment-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #18142c, #242450, #18142c);
+  padding: 20px;
 }
 
-/* Card central */
 .payment-card {
-  background: #18142c;
-  padding: 30px;
-  border-radius: 12px;
+  background-color: #18142c;
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 380px;
-  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
 }
 
-/* Título */
 .title {
+  text-align: center;
   font-size: 24px;
-  font-weight: bold;
   margin-bottom: 20px;
   color: white;
 }
 
-/* Botões de seleção de pagamento */
 .payment-options {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
 .payment-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
-  background-color: #ddd;
-  color: #333;
+  transition: background-color 0.3s;
+  width: 48%;
 }
 
 .payment-button.active {
-  background-color: #007bff;
+  background-color: #4caf50;
   color: white;
+  border-color: #4caf50;
 }
 
-/* Formulário */
-.payment-form {
-  text-align: left;
+.payment-form, .address-form {
+  margin-bottom: 20px;
 }
 
-.payment-form label {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
-  color: white; /* Texto branco */
-}
-
-.payment-form input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.row {
-  display: flex;
-  gap: 10px;
-}
-
-.row div {
-  flex: 1;
-}
-
-/* Seção do Pix */
-.pix-section {
-  text-align: center;
-  color: white; /* Deixa o texto da seção Pix em branco */
-}
-
-.pix-section img {
-  width: 150px;
-  margin-top: 10px;
-}
-
-/* Resumo do pedido */
-.order-summary {
-  background: #f1f1f1;
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-.order-summary h5 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.total {
+.payment-form .row, .address-form .row {
   display: flex;
   justify-content: space-between;
-  font-weight: bold;
 }
 
-/* Botão de confirmação */
-.confirm-button {
-  background-color: #28a745;
+.payment-form .row div, .address-form .row div {
+  width: 48%;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
   color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
+}
+
+h4 {
+  color: white;
+}
+
+input {
   width: 100%;
-  margin-top: 20px;
-  transition: 0.3s;
+  padding: 10px;
+  border: 1px solid #242450;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #242450;
+}
+
+
+input:focus, textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.confirm-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .confirm-button:hover {
-  background-color: #218838;
+  background-color: #0056b3;
 }
 
-/* Animação suave ao alternar opções */
-.fade-in {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}

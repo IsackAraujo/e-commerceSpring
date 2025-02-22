@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9b2ab4f-c968-4913-a5b9-dfaa32224b09" name="Changes" comment="de" />
+    <list default="true" id="e9b2ab4f-c968-4913-a5b9-dfaa32224b09" name="Changes" comment="de">
+      <change afterPath="$PROJECT_DIR$/client/src/api/Order.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/HistoryPage/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/HistoryPage/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/br/edu/utfpr/pb/pw44s/server/entity/ProductOrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/api/Login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/Login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/api/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Footer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/NavBar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/NavBar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/AboutPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/AboutPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CartPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CartPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CartPage/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CartPage/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CategoryPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CategoryPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/HomePage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/HomePage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/LoginPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/LoginPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/PaymentPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/PaymentPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/PaymentPage/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/PaymentPage/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ProductPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ProductPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routes/BaseRoutes/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/CarrinhoServices.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/CarrinhoServices.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/br/edu/utfpr/pb/pw44s/server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/br/edu/utfpr/pb/pw44s/server/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/br/edu/utfpr/pb/pw44s/server/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/br/edu/utfpr/pb/pw44s/server/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/br/edu/utfpr/pb/pw44s/server/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/br/edu/utfpr/pb/pw44s/server/services/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="TypeScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -30,8 +55,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/IsackAraujo/isack-progweb2024-2.git&quot;,
-    &quot;accountId&quot;: &quot;a390d0f0-942e-4897-a18e-2cf1d2575819&quot;
+    &quot;url&quot;: &quot;https://github.com/IsackAraujo/e-commerceSpring.git&quot;,
+    &quot;accountId&quot;: &quot;358c4152-44e0-44d0-bbe1-90ea6787ad17&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -63,7 +88,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Vaio/Desktop/front/TrabalhoWebFront-main",
+    "last_opened_file_path": "C:/Users/Vaio/Desktop/calcSocket",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,6 +101,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Vaio\Desktop\front\TrabalhoWebFront-main\client\src\pages\HistoryPage" />
+      <recent name="C:\Users\Vaio\Desktop\front\TrabalhoWebFront-main\client\node_modules" />
       <recent name="C:\Users\isack\Faculdade\Web\Trabalho\isack-progweb2024-2\server\src\main\java\br\edu\utfpr\pb\pw44s\server\services\interfaces" />
       <recent name="C:\Users\isack\Faculdade\Web\Trabalho\isack-progweb2024-2\server\src\main\java\br\edu\utfpr\pb\pw44s\server\security" />
     </key>
@@ -131,7 +158,11 @@
       <workItem from="1731969218755" duration="8510000" />
       <workItem from="1732058744468" duration="2900000" />
       <workItem from="1739727088931" duration="82000" />
-      <workItem from="1739727193460" duration="16442000" />
+      <workItem from="1739727193460" duration="18329000" />
+      <workItem from="1739835105017" duration="7677000" />
+      <workItem from="1739913868247" duration="5331000" />
+      <workItem from="1739919568287" duration="9693000" />
+      <workItem from="1740004716306" duration="1084000" />
     </task>
     <servers />
   </component>
@@ -155,7 +186,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/pages/RegisterPage/index.tsx</url>
           <line>4</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
