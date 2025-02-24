@@ -1,7 +1,10 @@
 package br.edu.utfpr.pb.pw44s.server.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.math.BigDecimal;
 
 @Builder
 @NoArgsConstructor
@@ -20,10 +23,9 @@ public class ProductOrderEntity {
     @JoinColumn(name = "product_id")
     ProductEntity product;
 
+    @NotNull
+    private Long quantity;
 
-
-    // totalValue
-
-
+    private BigDecimal totalValue;
 
 }

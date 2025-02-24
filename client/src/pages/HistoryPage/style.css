@@ -1,52 +1,42 @@
 .history-container {
-  background-color: #18142c;
-  color: white;
   padding: 20px;
-  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.title {
-  text-align: center;
-  font-size: 28px;
+.order-card {
   margin-bottom: 20px;
-  color: #4caf50;
-}
-
-.order-summary {
-  background-color: #242450;
+  padding: 20px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.order-summary h5 {
-  color: white;
-  margin: 10px 0;
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
 
-.order-summary p {
-  margin: 5px 0;
-  color: #ddd;
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-quantity {
+  color: #eeeeee;
+}
+
+.product-image {
+  border-radius: 4px;
+}
+
+.order-header {
+  color: #eeeeee;
 }
 
 .total {
-  font-weight: bold;
-  font-size: 18px;
-  color: #4caf50;
-}
-
-hr {
-  border: 1px solid #ddd;
-  margin: 15px 0;
-}
-
-.order-summary p:last-child {
-  color: #fff;
-}
-
-.history-container p {
-  text-align: center;
-  color: #fff;
-  font-size: 18px;
+  color: #45a049;
 }

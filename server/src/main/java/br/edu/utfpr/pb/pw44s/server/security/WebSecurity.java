@@ -59,16 +59,14 @@ public class WebSecurity {
 
         // configura a authorização das requisições
         http.authorizeHttpRequests((authorize) -> authorize
-                //permite que a rota "/users" seja acessada, mesmo sem o usuário estar autenticado desde que o método HTTP da requisição seja POST
-                .requestMatchers(antMatcher(HttpMethod.POST, "/user/**")).permitAll()
-                //permite que a rota "/error" seja acessada por qualquer requisição mesmo o usuário não estando autenticado
-                .requestMatchers(antMatcher("/error/**")).permitAll()
-                //permite que a rota "/h2-console" seja acessada por qualquer requisição mesmo o usuário não estando autenticado
                 .requestMatchers(antMatcher("/h2-console/**")).permitAll()
-                //as demais rotas da aplicação só podem ser acessadas se o usuário estiver autenticado
-                .requestMatchers("/**").permitAll()
-                .anyRequest().authenticated()
-        );
+                .requestMatchers(antMatcher(HttpMethod.POST, "/user/**")).permitAll()
+                .requestMatchers(antMatcher("/error/**")).permitAll()
+                .requestMatchers(antMatcher(HttpMethod.POST, "/login/**")).permitAll()
+                .requestMatchers(antMatcher("/product/**")).permitAll()
+                .requestMatchers(antMatcher("/category/**")).permitAll()
+                .anyRequest().authenticated());
+
         http.authenticationManager(authenticationManager)
                 //Filtro da Autenticação - sobrescreve o método padrão do Spring Security para Autenticação.
                 .addFilter(new JWTAuthenticationFilter(authenticationManager, authService))

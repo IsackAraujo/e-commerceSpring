@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCart, removeFromCart, getCartTotal } from '../../services/CarrinhoServices.ts';
+import { getCart, removeFromCart, getCartTotal, updateCartQuantity } from '../../services/CarrinhoServices.ts';  // Certifique-se de criar essa função em seu service
 import './style.css';
 import { FaTrash, FaShoppingCart } from 'react-icons/fa';
+import AuthService from "../../services/AuthService.ts";
 
 const CartPage: React.FC = () => {
   const [cart, setCart] = useState(getCart());
@@ -18,9 +19,27 @@ const CartPage: React.FC = () => {
     alert(`${productTitle} removido do carrinho!`);
   };
 
-  const handleFinalizePurchase = () => {
-    const totalPrice = getCartTotal();
-    navigate('/payment', { state: { cart, totalPrice } });
+  const handleChangeQuantity = (productId: number, newQuantity: number) => {
+    if (newQuantity <= 0) return; // Não permite quantidade negativa ou zero
+    updateCartQuantity(productId, newQuantity); // Crie essa função em seu serviço
+    setCart(getCart()); // Atualiza o estado do carrinho
+  };
+
+  const handleFinalizePurchase = async () => {
+    try {
+      const isAuth = await AuthService.isAuthenticated();
+
+      if (!isAuth) {
+        navigate('/login');
+        return;
+      }
+
+      const totalPrice = getCartTotal();
+      navigate('/payment', { state: { cart, totalPrice } });
+    } catch (error) {
+      console.error("Erro na autenticação:", error);
+      navigate('/login');
+    }
   };
 
   const handleGoBackHome = () => {
@@ -40,8 +59,12 @@ const CartPage: React.FC = () => {
                       <img src={product.imageUrl} alt={product.name} className="cart-item-image" />
                       <div className="cart-item-details">
                         <h3>{product.name}</h3>
-                        <p>{product.price}</p>
-                        <p>Quantidade: {product.quantity}</p>
+                        <p>Preço: R$ {product.price}</p>
+                        <p>Quantidade:
+                          <button onClick={() => handleChangeQuantity(product.id, product.quantity - 1)}>-</button>
+                          {product.quantity}
+                          <button onClick={() => handleChangeQuantity(product.id, product.quantity + 1)}>+</button>
+                        </p>
                         <button className="btn-remove" onClick={() => handleRemoveFromCart(product.id, product.name)}>
                           <FaTrash /> Remover
                         </button>

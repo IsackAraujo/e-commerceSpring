@@ -1,5 +1,6 @@
-import axios from 'axios';
+
 import {Product} from '../services/CarrinhoServices.ts'
+import {api} from "../lib/axios.ts";
 
 interface CartItem extends Product {
     quantity: number;
@@ -11,9 +12,16 @@ interface OrderProduct {
 }
 
 export interface Order {
-    userId: number;
+    orderDate: string;
     orderDescription: string;
-    products: OrderProduct[];
+    products: {
+        id: number;
+        name: string;
+        description: string | null;
+        imageUrl: string;
+        quantity: number;
+        totalValue: number;
+    }[];
 }
 
 export class OrderService {
@@ -34,7 +42,9 @@ export class OrderService {
                 }))
             };
 
-            const response = await axios.post(`${this.baseUrl}/order`, orderData);
+            const response = await api.post(`${this.baseUrl}/order`, orderData);
+
+
             return response.data;
         } catch (error) {
             console.error('Erro ao criar pedido:', error);
@@ -42,9 +52,9 @@ export class OrderService {
         }
     }
 
-    async getAllOrders(userId: number): Promise<Order[]> {
+    async getAllOrders(userId: number): Promise<Order[]> { // Mudando retorno para Array
         try {
-            const response = await axios.get(`${this.baseUrl}/order/user/${userId}`);
+            const response = await api.get(`${this.baseUrl}/order/user/${userId}`);
             return response.data;
         } catch (error) {
             console.error('Erro ao obter pedidos:', error);

@@ -15,7 +15,7 @@ export class LoginService {
     async registerUser(userData: UserAuthData): Promise<any> {
         console.log('Dados do usuário:', userData);
         try {
-            const response = await axios.post(`${this.baseUrl}/user`, userData, {
+            const response = await axios.post(`${this.baseUrl}/login`, userData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -30,6 +30,7 @@ export class LoginService {
 
     async loginUser(userData: UserAuthData): Promise<any> {
         console.log('Dados de login:', userData);
+        // Edit the end-point here
         try {
             const response = await axios.post(`${this.baseUrl}/login`, userData, {
                 headers: {

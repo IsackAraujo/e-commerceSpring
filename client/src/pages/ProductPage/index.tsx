@@ -21,17 +21,45 @@ const ProductPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null>(null);
     const [mainImage, setMainImage] = useState<string>('');
+    const [error, setError] = useState<string>('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (id) {
-            productService.getProductById(id)
-                .then(data => {
-                    setProduct(data);
-                    setMainImage(data.imageUrl);
-                })
-                .catch(error => console.error("Erro ao carregar produto:", error));
-        }
+        const loadProduct = async () => {
+            if (!id) {
+                setError('ID do produto não fornecido');
+                setLoading(false);
+                return;
+            }
+
+            try {
+                setLoading(true);
+                const data = await productService.getProductById(id);
+                setProduct(data);
+                setMainImage(data.imageUrl);
+                setError('');
+            } catch (err) {
+                setError('Erro ao carregar o produto. Por favor, tente novamente.');
+                console.error('Erro detalhado:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadProduct();
     }, [id]);
+
+    if (loading) {
+        return <div>Carregando...</div>;
+    }
+
+    if (error) {
+        return <div className="alert alert-danger">{error}</div>;
+    }
+
+    if (!product) {
+        return <div>Produto não encontrado</div>;
+    }
 
     const handleAddToCart = () => {
         if (product) {

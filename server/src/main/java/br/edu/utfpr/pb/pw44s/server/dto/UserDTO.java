@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
+import br.edu.utfpr.pb.pw44s.server.entity.UserEntity;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -11,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 public class UserDTO {
 
-    private int id;
+    private long id;
 
     @NotNull
     @Size(min = 4, max = 255)
@@ -30,4 +31,10 @@ public class UserDTO {
     @Size(min = 6)
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$")
     private String password;
+
+    public UserDTO(UserEntity user) {
+        this.id = user.getId();
+        this.displayName = user.getDisplayName();
+        this.username = user.getUsername();
+    }
 }

@@ -56,21 +56,22 @@ const PaymentPage = () => {
     }
   };
 
-
   const handlePayment = () => {
     console.log("Clicou em Finalizart");
     console.log('Carinho?' + cart);
 
-
-
-    alert("Pagamento confirmado!");
+    //pegar user pra pegar o id do usuario e passar como parametro no makeOrder()//
 
     orderService.makeOrder(cart, 1)
 
+    /*
     const existingHistory = JSON.parse(localStorage.getItem("purchaseHistory") || "[]");
     const newPayment = { cart, paymentMethod, date: new Date().toLocaleString() };
     const updatedHistory = [...existingHistory, newPayment];
     localStorage.setItem("purchaseHistory", JSON.stringify(updatedHistory));
+    */
+
+    alert("Pagamento confirmado!");
 
     clearCart();
     navigate("/history");

@@ -3,49 +3,88 @@ import './style.css';
 import { OrderService, Order } from '../../api/Order.ts';
 
 const HistoryPage = () => {
-
-  console.log("Entrouo11");
-  const [purchaseHistory, setPurchaseHistory] = useState<Order[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]); // Mudando para array
   const orderService = new OrderService('http://localhost:8080');
-  const userId = 1;
 
   useEffect(() => {
-    const fetchPurchaseHistory = async () => {
+    const fetchOrders = async () => {
       try {
-        const historyData = await orderService.getAllOrders(userId);
-        setPurchaseHistory(historyData);
+        const ordersData = await orderService.getAllOrders(1);
+        console.log("Dados recebidos:", ordersData);
+        setOrders(ordersData);
       } catch (error) {
-        console.error('Erro ao carregar o histórico de compras:', error);
+        console.error('Erro ao carregar os pedidos:', error);
       }
     };
 
-    fetchPurchaseHistory();
-  }, [userId]);
+    fetchOrders();
+  }, []);
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric'
+    });
+  };
+
+  const calculateOrderTotal = (products: any[]) => {
+    return products.reduce((acc, product) => acc + product.totalValue, 0);
+  };
+
+  if (orders.length === 0) {
+    return (
+        <div className="history-container">
+          <h2 className="title">Detalhes dos Pedidos</h2>
+          <div className="empty-state">
+            <p>Nenhum pedido encontrado.</p>
+          </div>
+        </div>
+    );
+  }
 
   return (
       <div className="history-container">
-        <h2 className="title">Histórico de Compras</h2>
-        {purchaseHistory.length > 0 ? (
-            purchaseHistory.map((order, index) => (
-                <div key={index} className="order-summary">
-                  <h5>Pedido realizado em: {order.orderDate}</h5>
-                  {order.products.map((product, i) => (
-                      <div key={i}>
-                        <p>Produto ID: {product.id} - Quantidade: {product.quantity}</p>
-                        <p>Preço: R$ {product.totalValue.toFixed(2)}</p>
+        <h2 className="title">Histórico de Pedidos</h2>
+
+        {orders.map((order, orderIndex) => (
+            <div key={orderIndex} className="order-card">
+              <div className="order-header">
+                <h3>Pedido realizado em: {formatDate(order.orderDate)}</h3>
+                <p className="order-description">{order.orderDescription}</p>
+              </div>
+
+              <div className="products-list">
+                {order.products.map((product, productIndex) => (
+                    <div key={productIndex} className="product-item">
+                      <div className="product-info">
+                        <img
+                            src={product.imageUrl}
+                            alt={product.name}
+                            className="product-image"
+                            style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                        />
+                        <div>
+                          <p className="product-title">{product.name}</p>
+                          <p className="product-quantity">Quantidade: {product.quantity}</p>
+                        </div>
                       </div>
-                  ))}
-                  <hr />
-                  <h5 className="total">
-                    <span>Total</span>
-                    <span>R$ {order.products.reduce((acc, product) => acc + product.totalValue, 0).toFixed(2)}</span>
-                  </h5>
-                  <p>Método de Pagamento: Cartão de Crédito (exemplo fictício)</p>
+                      <p className="total">
+                        R$ {product.totalValue.toFixed(2)}
+                      </p>
+                    </div>
+                ))}
+              </div>
+
+              <div className="order-footer">
+                <div className="total">
+                  <span>Total do Pedido </span>
+                  <span>R${calculateOrderTotal(order.products).toFixed(2)}</span>
                 </div>
-            ))
-        ) : (
-            <p>Você ainda não fez nenhuma compra.</p>
-        )}
+              </div>
+            </div>
+        ))}
       </div>
   );
 };

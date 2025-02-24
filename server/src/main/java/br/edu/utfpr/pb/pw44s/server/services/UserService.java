@@ -47,4 +47,6 @@ public class UserService {
                 .orElseThrow(() -> new IllegalArgumentException("Usuário com ID " + userId + " não encontrado."));
     }
 
+
+
 }

@@ -1,7 +1,10 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
-import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -11,10 +14,8 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDTO {
-    @NotNull
-    private Long userId;
+public class OrderResponseDTO {
     private LocalDate orderDate;
     private String orderDescription;
-    private List<ProductOrderDTO> products;
+    private List<ProductOrderResponseDTO> products;
 }

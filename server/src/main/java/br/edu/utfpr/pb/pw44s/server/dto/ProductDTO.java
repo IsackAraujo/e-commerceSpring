@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Builder
 @Getter
 @Setter
-public class ProductDTO {
+public class  ProductDTO {
 
     private Long id;
 
